@@ -1,0 +1,19 @@
+.page-heading { margin-bottom: 28px; }
+.eyebrow { color: #b45d79; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+h1 { margin: 8px 0; font-size: 28px; color: #392f36; }
+.page-heading p, .panel p { color: #88818a; font-size: 13px; }
+.panel { background: white; border: 1px solid #ece8eb; border-radius: 14px; padding: 25px; margin-bottom: 20px; max-width: 760px; }
+.panel-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 25px; }
+.panel-heading h2, .panel h2 { margin: 0 0 6px; font-size: 17px; }
+.panel-heading p { margin: 0; }
+.icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 12px; background: #fff0f3; color: #a64d6a; font-size: 22px; }
+label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+input { width: 100%; padding: 13px; border: 1px solid #e5dfe3; border-radius: 8px; outline: none; }
+input:focus { border-color: #b95e79; }
+.actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+button { border: 0; border-radius: 8px; padding: 11px 17px; font-size: 12px; font-weight: 700; }
+.primary { background: #b95e79; color: white; }
+.secondary { background: #f5edf0; color: #875267; }
+.message { margin-top: 15px; color: #43865f !important; }
+.notice { margin-top: 22px; padding: 14px; background: #fff7f8; border-radius: 8px; color: #806b74; font-size: 12px; line-height: 1.6; }
+.panel a { color: #a64d6a; font-size: 13px; font-weight: 700; text-decoration: none; }

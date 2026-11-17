@@ -1,0 +1,60 @@
+<div class="page-heading">
+    <div>
+      <span class="eyebrow">ORGANIZAÇÃO</span>
+      <h1>Categorias</h1>
+      <p>Gerencie os gêneros e categorias das séries.</p>
+    </div>
+    <button class="primary" (click)="mostrarFormulario = !mostrarFormulario">
+      ＋ Nova categoria
+    </button>
+  </div>
+  
+  @if (mensagem) { <div class="success">{{ mensagem }}</div> }
+  @if (erro) { <div class="error">{{ erro }}</div> }
+  
+  @if (mostrarFormulario) {
+    <section class="panel form-panel">
+      <h2>Nova categoria</h2>
+      <p>Adicione uma categoria ao catálogo.</p>
+  
+      <form (ngSubmit)="criar()">
+        <label for="nome">Nome da categoria</label>
+        <div class="form-row">
+          <input id="nome" name="nome" [(ngModel)]="nome"
+                 placeholder="Ex.: Romance" required>
+          <button class="primary" type="submit" [disabled]="enviando">
+            {{ enviando ? 'Salvando...' : 'Cadastrar' }}
+          </button>
+        </div>
+      </form>
+    </section>
+  }
+  
+  <section class="panel">
+    <div class="table-heading">
+      <div>
+        <h2>Categorias cadastradas</h2>
+        <p>{{ categorias.length }} categoria(s) carregada(s)</p>
+      </div>
+      <button class="secondary" (click)="carregar()">↻ Atualizar</button>
+    </div>
+  
+    @if (carregando) {
+      <p class="empty">Carregando categorias...</p>
+    } @else if (categorias.length === 0) {
+      <p class="empty">Nenhuma categoria encontrada.</p>
+    } @else {
+      <div class="category-grid">
+        @for (categoria of categorias; track categoria.id) {
+          <article class="category-card">
+            <div class="category-icon">◈</div>
+            <div>
+              <strong>{{ categoria.nome }}</strong>
+              <small>ID: {{ categoria.id }}</small>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </section>
+  

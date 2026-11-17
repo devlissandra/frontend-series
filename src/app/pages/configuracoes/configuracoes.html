@@ -1,0 +1,44 @@
+
+<div class="page-heading">
+    <div>
+      <span class="eyebrow">SISTEMA</span>
+      <h1>Configurações</h1>
+      <p>Gerencie a conexão entre o painel e a API.</p>
+    </div>
+  </div>
+  
+  <section class="panel">
+    <div class="panel-heading">
+      <div class="icon">⌘</div>
+      <div>
+        <h2>Conexão com a API</h2>
+        <p>Informe sua chave de acesso para consultar e cadastrar dados.</p>
+      </div>
+    </div>
+  
+    <label for="apiKey">API Key</label>
+    <input id="apiKey" type="password" [(ngModel)]="chave"
+           placeholder="Cole sua X-API-Key aqui">
+  
+    <div class="actions">
+      <button class="primary" (click)="salvar()">Salvar chave</button>
+      <button class="secondary" (click)="remover()">Remover chave</button>
+    </div>
+  
+    @if (mensagem) {
+      <p class="message">{{ mensagem }}</p>
+    }
+  
+    <div class="notice">
+      <strong>Privacidade:</strong> a chave fica armazenada apenas na sessão atual
+      deste navegador. Não coloque sua chave diretamente no código-fonte.
+    </div>
+  </section>
+  
+  <section class="panel">
+    <h2>Documentação</h2>
+    <p>Consulte os endpoints, parâmetros e modelos disponibilizados pela API.</p>
+    <a href="https://api-series-11cp.onrender.com/swagger-ui/index.html"
+       target="_blank" rel="noopener">Abrir Swagger da API ↗</a>
+  </section>
+  

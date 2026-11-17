@@ -1,0 +1,91 @@
+<div class="welcome">
+  <div>
+    <span class="eyebrow">PAINEL DE CONTROLE</span>
+    <h1>Visão geral</h1>
+    <p>Acompanhe e organize seu catálogo de séries.</p>
+  </div>
+
+  <div class="welcome-actions">
+    <button
+      class="refresh"
+      type="button"
+      (click)="carregarDados()"
+      [disabled]="carregando">
+      {{ carregando ? 'Carregando...' : '↻ Atualizar' }}
+    </button>
+
+    <a routerLink="/series" class="primary">＋ Nova série</a>
+  </div>
+</div>
+
+@if (erro) {
+  <div class="alert">
+    {{ erro }}
+    @if (erro.includes('API Key')) {
+      <a routerLink="/configuracoes">Ir para configurações</a>
+    }
+  </div>
+}
+
+<div class="cards">
+  <article class="stat-card">
+    <div class="stat-icon pink">▤</div>
+    <span>Total de séries</span>
+    <strong>{{ carregando ? '—' : totalSeries }}</strong>
+    <small>Registros no catálogo</small>
+  </article>
+
+  <article class="stat-card">
+    <div class="stat-icon lilac">◈</div>
+    <span>Categorias</span>
+    <strong>{{ carregando ? '—' : totalCategorias }}</strong>
+    <small>Categorias cadastradas</small>
+  </article>
+
+  <article class="stat-card">
+    <div class="stat-icon green">✓</div>
+    <span>API</span>
+    <strong [class.online]="apiConectada" [class.offline]="!apiConectada">
+      {{ carregando ? 'Verificando...' : apiConectada ? 'Conectada' : 'Indisponível' }}
+    </strong>
+    <small>Serviço hospedado no Render</small>
+  </article>
+</div>
+
+<section class="section-card">
+  <div class="section-title">
+    <div>
+      <h2>Acesso rápido</h2>
+      <p>Escolha o que deseja gerenciar.</p>
+    </div>
+  </div>
+
+  <div class="quick-links">
+    <a routerLink="/series">
+      <span class="quick-icon">▤</span>
+      <div>
+        <strong>Gerenciar séries</strong>
+        <small>Consultar e cadastrar séries</small>
+      </div>
+      <b>→</b>
+    </a>
+
+    <a routerLink="/categorias">
+      <span class="quick-icon">◈</span>
+      <div>
+        <strong>Gerenciar categorias</strong>
+        <small>Organizar os gêneros do catálogo</small>
+      </div>
+      <b>→</b>
+    </a>
+
+    <a routerLink="/configuracoes">
+      <span class="quick-icon">⚙</span>
+      <div>
+        <strong>Configurar API</strong>
+        <small>Gerenciar sua chave de acesso</small>
+      </div>
+      <b>→</b>
+    </a>
+  </div>
+</section>
